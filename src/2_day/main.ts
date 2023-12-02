@@ -1,4 +1,4 @@
-const testCase = [
+const testCaseTwo = [
   {
     gifts: ["tren", "oso", "pelota"],
     materials: "tronesa", // tren oso
@@ -29,7 +29,7 @@ const manufacture = (gifts: Array<string>, materials: string) => {
   return values;
 };
 
-testCase.forEach(({ gifts, materials, expected }) =>
+testCaseTwo.forEach(({ gifts, materials, expected }) =>
   console.log(`
         gifts: [${gifts}]  materials: [${materials}]
         expected: [${expected}] received:  [${manufacture(

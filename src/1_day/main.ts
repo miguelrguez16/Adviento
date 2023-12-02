@@ -1,3 +1,22 @@
+const testCaseOne = [
+  {
+    gift: [2, 1, 3, 5, 3, 2],
+    expected: 3,
+  },
+  {
+    gift: [1, 2, 3, 4],
+    expected: -1,
+  },
+  {
+    gift: [5, 1, 5, 1],
+    expected: 5,
+  },
+  {
+    gift: [2, 1, 3, 5, 3, 2, 6],
+    expected: 3,
+  },
+];
+
 const findFirstRepeated = (gift: Array<number>) => {
   const set = new Set(gift);
   // no hay repetidos
@@ -17,24 +36,7 @@ const findFirstRepeated = (gift: Array<number>) => {
   return repeated.at(0);
 };
 
-[
-  {
-    gift: [2, 1, 3, 5, 3, 2],
-    expected: 3,
-  },
-  {
-    gift: [1, 2, 3, 4],
-    expected: -1,
-  },
-  {
-    gift: [5, 1, 5, 1],
-    expected: 5,
-  },
-  {
-    gift: [2, 1, 3, 5, 3, 2, 6],
-    expected: 3,
-  },
-].forEach(({ gift, expected }) => {
+testCaseOne.forEach(({ gift, expected }) => {
   const start = performance.now();
   console.log(
     `${gift} -> expected: ${expected} -> received ${findFirstRepeated(gift)}`
