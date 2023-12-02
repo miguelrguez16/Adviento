@@ -12,6 +12,10 @@ const testCaseOne = [
     expected: 5,
   },
   {
+    gift: [1, 5, 5, 1],
+    expected: 5,
+  },
+  {
     gift: [2, 1, 3, 5, 3, 2, 6],
     expected: 3,
   },
@@ -21,26 +25,25 @@ const findFirstRepeated = (gift: Array<number>) => {
   const set = new Set(gift);
   // no hay repetidos
   if (set.size === gift.length) return -1;
+
   // hay repetidos
   const perfectArray = Array.from(set.values());
-  let repeated: Array<number> = new Array<number>();
-  let found = false;
-  for (let i = 0; i < gift.length && !found; i++) {}
 
-  gift.forEach((value, index) => {
-    if (value !== perfectArray.at(index)) {
-      repeated.push(value);
+  for (let i = 0; i < gift.length; i++) {
+    const value = gift.at(i);
+    if (value !== perfectArray.at(i)) {
+      return value;
     }
-  });
-
-  return repeated.at(0);
+  }
+  return -1;
 };
 
-testCaseOne.forEach(({ gift, expected }) => {
+testCaseOne.forEach(({ gift, expected }, index) => {
   const start = performance.now();
   console.log(
-    `${gift} -> expected: ${expected} -> received ${findFirstRepeated(gift)}`
+    `${gift} 
+    -> expected: ${expected} -> received ${findFirstRepeated(gift)}`
   );
   const end = performance.now();
-  console.log(`Call to findFirstRepeated took ${end - start} milliseconds\n`);
+  console.log(`Case ${index + 1} -> took ${end - start} milliseconds\n`);
 });
