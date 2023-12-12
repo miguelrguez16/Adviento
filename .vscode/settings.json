@@ -5,5 +5,7 @@
     },
     "editor.cursorBlinking": "blink",
     "editor.cursorSmoothCaretAnimation": "on",
-    "editor.cursorStyle": "underline"
+    "editor.cursorStyle": "underline",
+    "editor.stickyScroll.enabled": true,
+    "workbench.tree.enableStickyScroll": true
 }
